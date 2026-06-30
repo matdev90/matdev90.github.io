@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andi Tarmizi | Software House</title>
+  <meta name="description" content="Jasa pembuatan website & aplikasi UMKM - Laravel, Next.js, PostgreSQL">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    .bg-glow {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at 30% 20%, rgba(236, 72, 153, 0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 60%);
+      z-index: -1;
+      pointer-events: none;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 24px; max-width: 1100px; margin: 0 auto;
+    }
+    nav .logo { font-weight: 800; font-size: 1.25rem; color: #f1f5f9; }
+    nav .logo span { color: #ec4899; }
+    nav a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color .2s; }
+    nav a:hover { color: #ec4899; }
+
+    /* Hero */
+    .hero {
+      text-align: center; padding: 80px 24px 60px;
+    }
+    .hero .avatar {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; color: #fff; margin-bottom: 24px;
+      box-shadow: 0 0 40px rgba(236, 72, 153, 0.3);
+    }
+    .hero h1 {
+      font-size: 2.5rem; font-weight: 800; color: #f1f5f9; margin-bottom: 12px;
+    }
+    .hero h1 span { background: linear-gradient(135deg, #ec4899, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p {
+      font-size: 1.1rem; color: #94a3b8; max-width: 600px; margin: 0 auto 32px;
+    }
+    .hero .tag {
+      display: inline-block;
+      background: rgba(236, 72, 153, 0.1); border: 1px solid rgba(236, 72, 153, 0.2);
+      color: #f9a8d4; padding: 6px 16px; border-radius: 20px;
+      font-size: 0.85rem; font-weight: 500; margin: 4px;
+    }
+    .hero .btn {
+      display: inline-block; margin-top: 24px;
+      background: linear-gradient(135deg, #ec4899, #a855f7);
+      color: #fff; padding: 14px 36px; border-radius: 12px;
+      text-decoration: none; font-weight: 600; font-size: 1rem;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3);
+    }
+    .hero .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(236, 72, 153, 0.4); }
+
+    /* Section */
+    section { padding: 80px 0; }
+    section h2 {
+      font-size: 1.75rem; font-weight: 700; color: #f1f5f9; margin-bottom: 40px; text-align: center;
+    }
+    section h2 span { color: #ec4899; }
+
+    /* Services */
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;
+    }
+    .service-card {
+      background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(8px);
+      border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 16px;
+      padding: 28px; text-align: center; transition: border-color .3s, transform .3s;
+    }
+    .service-card:hover { border-color: rgba(236, 72, 153, 0.3); transform: translateY(-4px); }
+    .service-card .icon { font-size: 2rem; margin-bottom: 12px; }
+    .service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; color: #f1f5f9; }
+    .service-card p { font-size: 0.9rem; color: #94a3b8; }
+
+    /* Project */
+    .project-card {
+      background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(8px);
+      border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 16px;
+      padding: 36px; max-width: 700px; margin: 0 auto;
+    }
+    .project-card .proj-icon { font-size: 3rem; text-align: center; margin-bottom: 16px; }
+    .project-card h3 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; text-align: center; }
+    .project-card .subtitle { color: #94a3b8; font-size: 0.9rem; text-align: center; margin-bottom: 20px; }
+    .project-card .desc { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 20px; }
+    .project-card .stack { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 20px; }
+    .project-card .stack span {
+      background: rgba(236, 72, 153, 0.1); color: #f9a8d4;
+      padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 500;
+    }
+    .project-card .features {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .project-card .features li {
+      list-style: none; font-size: 0.88rem; color: #94a3b8;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .project-card .features li::before { content: "✓"; color: #34d399; font-weight: 700; }
+
+    /* Skills */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px;
+    }
+    .skill-item {
+      background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(148, 163, 184, 0.08);
+      border-radius: 12px; padding: 20px 16px; text-align: center; transition: border-color .3s;
+    }
+    .skill-item:hover { border-color: rgba(236, 72, 153, 0.2); }
+    .skill-item .emoji { font-size: 1.8rem; margin-bottom: 8px; }
+    .skill-item span { display: block; font-size: 0.85rem; font-weight: 500; color: #cbd5e1; }
+
+    /* Contact */
+    .contact-links {
+      display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+    }
+    .contact-links a {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(148, 163, 184, 0.1);
+      color: #e2e8f0; text-decoration: none; padding: 12px 24px; border-radius: 12px;
+      font-weight: 500; font-size: 0.9rem; transition: border-color .3s, transform .2s;
+    }
+    .contact-links a:hover { border-color: #ec4899; transform: translateY(-2px); }
+    .contact-links a .emoji { font-size: 1.2rem; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 32px 24px; font-size: 0.85rem; color: #475569;
+      border-top: 1px solid rgba(148, 163, 184, 0.06);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .project-card .features { grid-template-columns: 1fr; }
+      nav .nav-links { display: none; }
+      section { padding: 50px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="logo">&lt;<span>dev</span>/&gt;</div>
+    <div class="nav-links">
+      <a href="#project">Project</a>
+      <a href="#services">Layanan</a>
+      <a href="#skills">Skill</a>
+      <a href="#contact">Kontak</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="avatar">AT</div>
+    <h1>Halo, saya <span>Andi Tarmizi</span></h1>
+    <p>Founder software house dari Pringgasela. Saya bantu UMKM dan bisnis lokal go-digital dengan website & aplikasi berkualitas.</p>
+    <div>
+      <span class="tag">Laravel</span>
+      <span class="tag">Next.js</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">Tailwind</span>
+      <span class="tag">React</span>
+    </div>
+    <a href="https://github.com/matdev90" class="btn" target="_blank">Lihat GitHub Saya</a>
+  </header>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2>Layanan <span>Saya</span></h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon">🛒</div>
+          <h3>Toko Online</h3>
+          <p>Website e-commerce UMKM dengan manajemen produk, pesanan, dan pembayaran.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">🏢</div>
+          <h3>Company Profile</h3>
+          <p>Website profil perusahaan modern, responsif, dan siap SEO.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">📊</div>
+          <h3>Aplikasi Internal</h3>
+          <p>Sistem inventory, POS, laporan keuangan untuk operasional bisnis.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">🔧</div>
+          <h3>Maintenance</h3>
+          <p>Perawatan server, update fitur, backup data, dan monitoring.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project -->
+  <section id="project">
+    <div class="container">
+      <h2>Project <span>Terbaru</span></h2>
+      <div class="project-card">
+        <div class="proj-icon">🎀</div>
+        <h3>May's Gift</h3>
+        <p class="subtitle">Toko Bunga & Paket Hadiah Online — <a href="https://github.com/matdev90/maysgift" target="_blank" style="color:#ec4899;">Lihat Repo</a></p>
+        <p class="desc">
+          Aplikasi e-commerce full-stack untuk UMKM toko bunga. Dilengkapi admin panel dengan POS, 
+          manajemen stok, laporan penjualan, backup database, notifikasi WhatsApp/Telegram, 
+          dan pengaturan sosial media (Facebook, Instagram, TikTok).
+        </p>
+        <div class="stack">
+          <span>Laravel 11</span>
+          <span>Next.js 16</span>
+          <span>PostgreSQL</span>
+          <span>Sanctum Auth</span>
+          <span>Tailwind CSS</span>
+          <span>Nginx</span>
+        </div>
+        <ul class="features">
+          <li>Katalog produk & kategori</li>
+          <li>Keranjang & checkout</li>
+          <li>Guest checkout</li>
+          <li>Upload bukti bayar</li>
+          <li>Admin dashboard</li>
+          <li>POS (Point of Sale)</li>
+          <li>Laporan penjualan</li>
+          <li>Manajemen stok</li>
+          <li>Notif WhatsApp/Telegram</li>
+          <li>Sosial media settings</li>
+          <li>Backup & restore</li>
+          <li>Role-based access</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <h2>Tech <span>Stack</span></h2>
+      <div class="skills-grid">
+        <div class="skill-item"><div class="emoji">⚡</div><span>Laravel</span></div>
+        <div class="skill-item"><div class="emoji">▲</div><span>Next.js</span></div>
+        <div class="skill-item"><div class="emoji">🐘</div><span>PostgreSQL</span></div>
+        <div class="skill-item"><div class="emoji">🎨</div><span>Tailwind CSS</span></div>
+        <div class="skill-item"><div class="emoji">⚛️</div><span>React</span></div>
+        <div class="skill-item"><div class="emoji">☁️</div><span>DigitalOcean</span></div>
+        <div class="skill-item"><div class="emoji">🐳</div><span>Docker</span></div>
+        <div class="skill-item"><div class="emoji">🔧</div><span>Linux / Nginx</span></div>
+        <div class="skill-item"><div class="emoji">📦</div><span>Git / GitHub</span></div>
+        <div class="skill-item"><div class="emoji">📱</div><span>Responsive Design</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2>Hubungi <span>Saya</span></h2>
+      <div class="contact-links">
+        <a href="https://github.com/matdev90" target="_blank">
+          <span class="emoji">🐙</span> GitHub
+        </a>
+        <a href="https://twitter.com/anditarmizi90" target="_blank">
+          <span class="emoji">🐦</span> Twitter
+        </a>
+        <a href="mailto:anditarmizi90@gmail.com">
+          <span class="emoji">✉️</span> Email
+        </a>
+        <a href="https://wa.me/6281234567890" target="_blank">
+          <span class="emoji">💬</span> WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Andi Tarmizi — Dibuat dengan 💻 dari Pringgasela
+  </footer>
+</body>
+</html>
