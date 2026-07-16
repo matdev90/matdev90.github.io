@@ -147,18 +147,25 @@
       max-width: 720px;
     }
     .avatar-ring {
-      width: 110px; height: 110px; border-radius: 50%;
+      width: 220px; height: 220px; border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
       display: flex; align-items: center; justify-content: center;
       animation: spin 6s linear infinite;
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
     .avatar-ring .inner {
-      width: 98px; height: 98px; border-radius: 50%;
+      width: 200px; height: 200px; border-radius: 50%;
       background: var(--bg);
       display: flex; align-items: center; justify-content: center;
       font-size: 2.5rem; font-weight: 800; color: var(--heading);
       animation: spin 6s linear infinite reverse;
+    }
+    .avatar-ring .inner img {
+      transform: rotate(90deg);
+      width: 200px !important;
+      height: 200px !important;
+      border-radius: 50%;
+      object-fit: cover;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -550,7 +557,7 @@
   <!-- Hero -->
   <header class="hero">
     <div class="hero-content">
-      <div class="avatar-ring"><div class="inner"><img src="https://avatars.githubusercontent.com/u/39641247?v=4" alt="Andi Tarmizi" style="width:98px;height:98px;border-radius:50%;object-fit:cover;"></div></div>
+      <div class="avatar-ring"><div class="inner"><img src="https://avatars.githubusercontent.com/u/39641247?v=4" alt="Andi Tarmizi"></div></div>
       <div class="hero-greeting reveal">👋 Salam Kenal</div>
       <h1 class="reveal reveal-delay-1">Halo, saya <span class="gradient">Andi Tarmizi</span></h1>
       <div class="typing-wrap reveal reveal-delay-2">
