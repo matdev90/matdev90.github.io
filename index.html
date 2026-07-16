@@ -320,6 +320,15 @@
       padding: 4px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
       border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
     }
+    .project-controls { gap: 8px; }
+    .filter-btn {
+      padding: 8px 20px; border-radius: 10px; border: 1px solid var(--border);
+      background: transparent; color: var(--text-dim); font-size: 0.85rem;
+      font-weight: 600; cursor: pointer; font-family: inherit;
+      transition: all .3s;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
     .features-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
     }
@@ -511,8 +520,8 @@
       <div class="logo">&lt;<span>dev</span>/&gt;</div>
       <div class="nav-links">
         <a href="#stats">Tentang</a>
-        <a href="#project">Project</a>
         <a href="#services">Layanan</a>
+        <a href="#project">Project</a>
         <a href="#skills">Skill</a>
         <a href="#testimonials">Testimoni</a>
         <a href="#contact">Kontak</a>
@@ -528,8 +537,8 @@
   <div class="mobile-overlay" id="mobileOverlay"></div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#stats">Tentang</a>
-    <a href="#project">Project</a>
     <a href="#services">Layanan</a>
+    <a href="#project">Project</a>
     <a href="#skills">Skill</a>
     <a href="#testimonials">Testimoni</a>
     <a href="#contact">Kontak</a>
@@ -549,12 +558,13 @@
       </div>
       <p class="hero-desc reveal reveal-delay-2">
         Founder software house dari Pringgasela, Lombok Timur. Saya bantu UMKM dan bisnis lokal
-        go-digital — dari website UMKM, aplikasi internal, hingga sistem informasi rumah sakit
-        skala produksi dengan Java Spring Boot & MySQL.
+        go-digital — dari aplikasi Android, website UMKM, AI video processing, WhatsApp gateway,
+        hingga monitoring jaringan MikroTik & sistem informasi rumah sakit.
       </p>
       <div class="hero-tags reveal reveal-delay-3">
-        <span>Laravel</span><span>Next.js</span><span>Java</span>
-        <span>MySQL</span><span>PostgreSQL</span><span>Docker</span>
+        <span>Kotlin</span><span>Next.js</span><span>React</span>
+        <span>Node.js</span><span>Go</span><span>Java</span>
+        <span>PostgreSQL</span><span>Docker</span><span>AI/ML</span>
       </div>
       <div class="hero-actions reveal reveal-delay-3">
         <a href="https://github.com/matdev90" class="btn btn-primary" target="_blank">🐙 Lihat GitHub</a>
@@ -572,9 +582,9 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-card reveal"><div class="num"><span class="counter" data-target="5">0</span>+</div><div class="label">Tahun Pengalaman</div></div>
-        <div class="stat-card reveal reveal-delay-1"><div class="num"><span class="counter" data-target="25">0</span>+</div><div class="label">Project Selesai</div></div>
+        <div class="stat-card reveal reveal-delay-1"><div class="num"><span class="counter" data-target="15">0</span>+</div><div class="label">Project Selesai</div></div>
         <div class="stat-card reveal reveal-delay-2"><div class="num"><span class="counter" data-target="15">0</span>+</div><div class="label">Klien Puas</div></div>
-        <div class="stat-card reveal reveal-delay-3"><div class="num"><span class="counter" data-target="12">0</span>+</div><div class="label">Teknologi Dikuasai</div></div>
+        <div class="stat-card reveal reveal-delay-3"><div class="num"><span class="counter" data-target="25">0</span>+</div><div class="label">Teknologi Dikuasai</div></div>
       </div>
     </div>
   </section>
@@ -599,76 +609,17 @@
   <!-- Project -->
   <section id="project">
     <div class="container">
-      <div class="section-label reveal">Project Terbaru</div>
-      <h2 class="section-title reveal reveal-delay-1">Yang Baru <span class="gradient">Saya Kerjakan</span></h2>
-      <p class="section-sub reveal reveal-delay-1">Dari e-commerce UMKM hingga sistem informasi rumah sakit skala produksi.</p>
-      <div class="project-card reveal" style="margin-bottom: 24px;">
-        <div class="project-header">
-          <div class="project-icon">🎀</div>
-          <div class="project-meta">
-            <h3>May's Gift</h3>
-            <p class="subtitle">Toko Bunga & Paket Hadiah Online — <a href="https://github.com/matdev90/maysgift" target="_blank">Lihat Repo →</a></p>
-          </div>
-        </div>
-        <p class="project-desc">
-          Aplikasi e-commerce full-stack untuk UMKM toko bunga. Dilengkapi admin panel dengan POS,
-          manajemen stok, laporan penjualan real-time, backup database otomatis,
-          notifikasi WhatsApp/Telegram, dan pengaturan sosial media.
-        </p>
-        <div class="project-stack">
-          <span>Laravel 11</span><span>Next.js 16</span><span>PostgreSQL</span>
-          <span>Sanctum Auth</span><span>Tailwind CSS</span><span>Nginx</span>
-        </div>
-        <ul class="features-grid">
-          <li>Katalog produk & kategori</li>
-          <li>Keranjang & checkout</li>
-          <li>Guest checkout</li>
-          <li>Upload bukti bayar</li>
-          <li>Admin dashboard</li>
-          <li>POS (Point of Sale)</li>
-          <li>Laporan penjualan</li>
-          <li>Manajemen stok</li>
-          <li>Notif WhatsApp/Telegram</li>
-          <li>Sosial media settings</li>
-          <li>Backup & restore</li>
-          <li>Role-based access</li>
-        </ul>
+      <div class="section-label reveal">Portfolio</div>
+      <h2 class="section-title reveal reveal-delay-1">Semua <span class="gradient">Project</span></h2>
+      <p class="section-sub reveal reveal-delay-1">Dari mobile app, AI, website UMKM, hingga infrastruktur jaringan — semua saya kerjakan sendiri.</p>
+      <div class="project-controls reveal" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:32px;">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="web">Web App</button>
+        <button class="filter-btn" data-filter="ai">AI/ML</button>
+        <button class="filter-btn" data-filter="devops">Infrastructure</button>
       </div>
-
-      <div class="project-card reveal reveal-delay-2">
-        <div class="project-header">
-          <div class="project-icon">🏥</div>
-          <div class="project-meta">
-            <h3>Sistem Informasi Rumah Sakit</h3>
-            <p class="subtitle">Aplikasi Manajemen RS Skala Produksi — Java Spring Boot + MySQL</p>
-          </div>
-        </div>
-        <p class="project-desc">
-          Sistem informasi rumah sakit berbasis Java Spring Boot & MySQL yang menangani seluruh
-          alur operasional RS: pendaftaran pasien, rawat inap/jalan, farmasi, laboratorium,
-          radiologi, billing BPJS/LIS, dan manajemen stok farmasi. Dikonfigurasi untuk
-          production-scale dengan high-availability, load balancing, dan disaster recovery.
-        </p>
-        <div class="project-stack">
-          <span>Java 21</span><span>Spring Boot 3</span><span>MySQL 8</span>
-          <span>JPA/Hibernate</span><span>Redis Cache</span><span>Docker Swarm</span>
-          <span>HAProxy</span><span>Nginx</span><span>Prometheus</span>
-        </div>
-        <ul class="features-grid">
-          <li>Pendaftaran pasien & antrian</li>
-          <li>Rawat inap & rawat jalan</li>
-          <li>Farmasi & manajemen stok obat</li>
-          <li>Laboratorium & radiologi</li>
-          <li>Billing & BPJS</li>
-          <li>Laporan manajemen & keuangan</li>
-          <li>Role-based access (dokter, perawat, admin)</li>
-          <li>Riwayat medis elektronik (EMR)</li>
-          <li>Load balancing & auto-scaling</li>
-          <li>Backup DB otomatis & DR plan</li>
-          <li>Monitoring Grafana/Prometheus</li>
-          <li>SSL/TLS & firewall enterprise</li>
-        </ul>
-      </div>
+      <div id="projectList"></div>
     </div>
   </section>
 
@@ -679,15 +630,24 @@
       <h2 class="section-title reveal reveal-delay-1">Tech <span class="gradient">Stack</span></h2>
       <p class="section-sub reveal reveal-delay-1">Teknologi yang saya gunakan sehari-hari untuk membangun produk digital.</p>
       <div class="skills-grid">
-        <div class="skill-card reveal"><span class="emoji">☕</span><span class="name">Java / Spring Boot</span></div>
-        <div class="skill-card reveal reveal-delay-1"><span class="emoji">⚡</span><span class="name">Laravel</span></div>
-        <div class="skill-card reveal reveal-delay-2"><span class="emoji">▲</span><span class="name">Next.js</span></div>
-        <div class="skill-card reveal reveal-delay-3"><span class="emoji">🐬</span><span class="name">MySQL</span></div>
-        <div class="skill-card reveal reveal-delay-1"><span class="emoji">🐘</span><span class="name">PostgreSQL</span></div>
-        <div class="skill-card reveal reveal-delay-2"><span class="emoji">⚛️</span><span class="name">React</span></div>
-        <div class="skill-card reveal reveal-delay-3"><span class="emoji">🐳</span><span class="name">Docker</span></div>
-        <div class="skill-card reveal reveal-delay-1"><span class="emoji">🔧</span><span class="name">Linux / Nginx</span></div>
-        <div class="skill-card reveal reveal-delay-2"><span class="emoji">🏥</span><span class="name">SIM RS</span></div>
+        <div class="skill-card reveal"><span class="emoji">📱</span><span class="name">Kotlin / Jetpack Compose</span></div>
+        <div class="skill-card reveal reveal-delay-1"><span class="emoji">▲</span><span class="name">Next.js</span></div>
+        <div class="skill-card reveal reveal-delay-2"><span class="emoji">⚛️</span><span class="name">React / TypeScript</span></div>
+        <div class="skill-card reveal reveal-delay-3"><span class="emoji">🟢</span><span class="name">Node.js / Express</span></div>
+        <div class="skill-card reveal reveal-delay-1"><span class="emoji">🔵</span><span class="name">Go (Gin)</span></div>
+        <div class="skill-card reveal reveal-delay-2"><span class="emoji">☕</span><span class="name">Java / Spring Boot</span></div>
+        <div class="skill-card reveal reveal-delay-3"><span class="emoji">⚡</span><span class="name">Laravel</span></div>
+        <div class="skill-card reveal reveal-delay-1"><span class="emoji">🐬</span><span class="name">MySQL / MariaDB</span></div>
+        <div class="skill-card reveal reveal-delay-2"><span class="emoji">🐘</span><span class="name">PostgreSQL</span></div>
+        <div class="skill-card reveal reveal-delay-3"><span class="emoji">🗄️</span><span class="name">SQLite / Redis</span></div>
+        <div class="skill-card reveal reveal-delay-1"><span class="emoji">🐳</span><span class="name">Docker / Swarm</span></div>
+        <div class="skill-card reveal reveal-delay-2"><span class="emoji">🤖</span><span class="name">AI / Whisper / MediaPipe</span></div>
+        <div class="skill-card reveal reveal-delay-3"><span class="emoji">💬</span><span class="name">Baileys / WhatsApp API</span></div>
+        <div class="skill-card reveal reveal-delay-1"><span class="emoji">🔧</span><span class="name">Linux / Nginx / HAProxy</span></div>
+        <div class="skill-card reveal reveal-delay-2"><span class="emoji">🏥</span><span class="name">SIM RS / BPJS</span></div>
+        <div class="skill-card reveal reveal-delay-3"><span class="emoji">🌐</span><span class="name">MikroTik / RouterOS</span></div>
+        <div class="skill-card reveal reveal-delay-1"><span class="emoji">🎨</span><span class="name">Three.js / Framer Motion</span></div>
+        <div class="skill-card reveal reveal-delay-2"><span class="emoji">📊</span><span class="name">Prisma / Drizzle ORM</span></div>
         <div class="skill-card reveal reveal-delay-3"><span class="emoji">📦</span><span class="name">Git / GitHub</span></div>
       </div>
     </div>
@@ -748,7 +708,7 @@
             <a href="https://github.com/matdev90" target="_blank"><span class="emoji">🐙</span> GitHub</a>
             <a href="https://twitter.com/anditarmizi90" target="_blank"><span class="emoji">🐦</span> Twitter</a>
             <a href="mailto:anditarmizi90@gmail.com"><span class="emoji">✉️</span> Email</a>
-            <a href="https://wa.me/6281234567890" target="_blank"><span class="emoji">💬</span> WhatsApp</a>
+            <a href="https://wa.me/6282340055015" target="_blank"><span class="emoji">💬</span> WhatsApp</a>
           </div>
         </div>
         <form class="contact-form reveal reveal-delay-1" id="contactForm">
@@ -785,7 +745,7 @@
       <a href="https://github.com/matdev90" target="_blank" aria-label="GitHub">🐙</a>
       <a href="https://twitter.com/anditarmizi90" target="_blank" aria-label="Twitter">🐦</a>
       <a href="mailto:anditarmizi90@gmail.com" aria-label="Email">✉️</a>
-      <a href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp">💬</a>
+      <a href="https://wa.me/6282340055015" target="_blank" aria-label="WhatsApp">💬</a>
     </div>
     &copy; 2026 Andi Tarmizi — Dibuat dengan 💻 dari Pringgasela, Lombok Timur
   </footer>
@@ -879,7 +839,9 @@
     // --- Typing Effect ---
     const words = [
       'Founder Software House dari Pringgasela',
-      'Full-stack Developer (Java + Laravel + Next.js)',
+      'Android Dev — Kotlin & Jetpack Compose',
+      'Full-stack — Next.js, React, Node.js, Go',
+      'AI/ML — Whisper, MediaPipe, Computer Vision',
       'Spesialis Sistem Informasi Rumah Sakit',
       'DevOps & Production Server Engineer',
     ];
@@ -1011,6 +973,154 @@
         btn.style.pointerEvents = '';
         this.reset();
       }, 3000);
+    });
+
+    // --- Project Data ---
+    const projects = [
+      {
+        tag: 'mobile', icon: '📱', title: 'APK — Offline POS Kasir Android',
+        desc: 'Aplikasi Point of Sale (POS) Android untuk UMKM yang berjalan sepenuhnya offline tanpa internet. Data tersimpan lokal dengan Room Database terenkripsi. Fitur: manajemen inventaris real-time, transaksi multi-metode (Tunai, QRIS, E-Wallet), manajemen pelanggan dengan tier membership (Regular, Silver, Gold, Platinum), dashboard laporan & analitik keuangan, thermal printer, dan multi-user dengan role-based access (Owner, Manager, Cashier) diamankan PIN.',
+        stack: ['Kotlin','Jetpack Compose','Material Design 3','MVVM','Room Database','Gradle KTS','Android 14'],
+        features: ['Offline-first tanpa koneksi internet','Stock visual indicator (OK/Low/Out)','Multi-metode pembayaran','Tier membership pelanggan','Dashboard laporan keuangan','Thermal printer support','Role-based access + PIN','Mock data siap testing'],
+        repo: null, live: null
+      },
+      {
+        tag: 'ai', icon: '🎬', title: 'Clipper — AI Video Clipping & Auto-Upload',
+        desc: 'Platform AI untuk content creator meng-clip, meng-edit, dan mendistribusikan short-form video secara otomatis. Download dari 12+ platform (YouTube, TikTok, Instagram, Twitch, Kick), AI face tracking & detection, auto-caption (Whisper), smart resize 9:16, remove silence, voice dubbing/TTS, dan auto-upload multi-akun ke TikTok, YouTube Shorts, dan Instagram Reels dengan penjadwalan.',
+        stack: ['React 19','Vite','Node.js','Express 5','TypeScript','BullMQ','Redis','FFmpeg','Whisper AI','MediaPipe','yt-dlp','Docker'],
+        features: ['Download 12+ platform','AI face tracking & detection','Auto-caption Whisper AI','Remove silence flagship','Smart resize 9:16','Voice dubbing/TTS','Auto-upload multi-akun','Scheduling & queue system','CLI mode batch processing','Plugin system'],
+        repo: null, live: null
+      },
+      {
+        tag: 'web', icon: '🕌', title: 'Masjid Sulukul Muttaqin',
+        desc: 'Website komprehensif untuk Masjid Jami\' Sulukul Muttaqin — mengelola keuangan, galeri multimedia, berita, jadwal, dan notifikasi otomatis. Fitur publik: jadwal sholat otomatis (API Aladhan, metode Kemenag RI, WITA), rekapitulasi keuangan, jadwal Jumat, galeri foto/video (YouTube), live streaming, adzan otomatis, PWA. Panel admin: dashboard 3D animasi, manajemen transaksi, galeri, berita, donatur, user & role management, notif Telegram & WhatsApp.',
+        stack: ['Next.js 16','TypeScript','Prisma ORM','MariaDB','NextAuth.js','Tailwind CSS','Docker','Telegram Bot','WhatsApp API','PWA'],
+        features: ['Jadwal sholat otomatis (API Aladhan)','Rekapitulasi keuangan','Galeri foto & video YouTube','Live streaming & adzan otomatis','Dashboard 3D animasi','Manajemen donatur','Notifikasi Telegram & WhatsApp','PWA installable','Role management','Audit logging & rate limiting'],
+        repo: 'https://github.com/matdev90/masjid-sulukulmuttaqin',
+        live: 'https://jamiq-sulukulmuttaqin.or.id'
+      },
+      {
+        tag: 'web', icon: '🎀', title: 'May\'s Gift — Toko Bunga & Hadiah Online',
+        desc: 'Full-stack e-commerce untuk UMKM toko bunga dan hadiah. Dilengkapi toko online dengan katalog produk, guest checkout, upload bukti bayar, dan POS system untuk transaksi offline. Panel admin: manajemen produk, kategori, pesanan, pelanggan, laporan penjualan & stok. Notifikasi otomatis via WhatsApp & Telegram. Fitur backup & restore database.',
+        stack: ['Laravel 11','Next.js 16','PostgreSQL','Sanctum Auth','Tailwind CSS','Nginx','Docker'],
+        features: ['Katalog produk & kategori','Keranjang & checkout (guest)','Upload bukti pembayaran','POS (Point of Sale) offline','Laporan penjualan real-time','Manajemen stok','Notif WhatsApp/Telegram','Backup & restore database','Role-based access','Sosial media settings'],
+        repo: 'https://github.com/matdev90/maysgift',
+        live: 'https://maysgift.store'
+      },
+      {
+        tag: 'web', icon: '💻', title: 'SIMRS CareTrack — Hospital Maintenance',
+        desc: 'Sistem pelacakan tiket maintenance rumah sakit untuk dua lini: SIMRS (IT — hardware, software, jaringan) dan IPSRS (alat medis, listrik, properti). Pelaporan via WhatsApp Bot, Telegram Bot, atau web form. Fitur: real-time display monitor TV/LCD, auto-assignment teknisi, QR code scanning, SLA monitoring dengan prioritas (ringan/sedang/berat/kritis), 2FA authentication, dan role-based access.',
+        stack: ['Node.js','Express.js','EJS','Sequelize ORM','SQLite','Socket.IO','whatsapp-web.js','Telegraf','QR Code','2FA'],
+        features: ['Multi-service (SIMRS & IPSRS)','WhatsApp & Telegram bot','Real-time display TV/LCD','Auto-assignment teknisi','QR code asset scanning','SLA monitoring prioritas','2FA authentication','Shift scheduling','Role-based access','Export PDF & Excel'],
+        repo: 'https://github.com/matdev90/maintenance-sistem',
+        live: null
+      },
+      {
+        tag: 'web', icon: '🏥', title: 'SIMRS Khanza — Java Spring Boot',
+        desc: 'Fork & konfigurasi SIMRS Khanza — sistem informasi rumah sakit berbasis Java yang menangani seluruh alur operasional RS: pendaftaran pasien, rawat inap/jalan, farmasi, laboratorium, radiologi, billing BPJS/LIS, dan manajemen stok farmasi. Dikonfigurasi untuk production-scale dengan high-availability, load balancing, dan disaster recovery.',
+        stack: ['Java 21','Spring Boot 3','MySQL 8','JPA/Hibernate','Redis Cache','Docker Swarm','HAProxy','Nginx','Prometheus','Grafana'],
+        features: ['Pendaftaran pasien & antrian','Rawat inap & rawat jalan','Farmasi & stok obat','Laboratorium & radiologi','Billing & BPJS','Riwayat medis elektronik (EMR)','Load balancing & auto-scaling','Backup DB & DR plan','Monitoring Grafana/Prometheus','SSL/TLS & firewall enterprise'],
+        repo: 'https://github.com/matdev90/SIMRS-Khanza',
+        live: null
+      },
+      {
+        tag: 'web', icon: '🎥', title: 'Family Cinema — 3D Media Platform',
+        desc: 'Platform media keluarga privat ala Netflix/Disney+ untuk foto & video dengan pengalaman sinematik 3D. Fitur: 3D grid gallery, cinema mode dengan transisi sinematik, particle background, hero galaxy (rotating 3D photo galaxy), 3D card flip, parallax depth, upload drag-drop dengan auto-compression. Bot Telegram & WhatsApp terintegrasi dengan 10+ perintah dan event-driven notifications.',
+        stack: ['Next.js 16','Three.js','React Three Fiber','Framer Motion','Drizzle ORM','PostgreSQL','Redis','BullMQ','Cloudflare R2','Docker'],
+        features: ['3D grid gallery & cinema mode','Particle background & hero galaxy','3D card flip & parallax depth','Upload drag-drop auto-compression','Bot Telegram 10+ commands','Event-driven notifications','Daily/weekly digests','15 kategori pengaturan','S3-compatible storage','SEO & PWA'],
+        repo: null, live: null
+      },
+      {
+        tag: 'devops', icon: '💬', title: 'WA Gateway — Self-Hosted WhatsApp Gateway',
+        desc: 'WhatsApp Gateway self-hosted menggunakan Baileys (Multi-Device). REST API untuk kirim pesan, template system dengan variable replacement, broadcast messaging, message queue (BullMQ) dengan rate limiting 20 msg/min, API Key authentication + IP whitelist, webhooks untuk incoming messages & delivery status, monitoring dashboard, dan Telegram alerts. Menghemat ~80% biaya dibanding pihak ketiga.',
+        stack: ['Node.js','Express 5','TypeScript','Baileys','PostgreSQL','Redis','BullMQ','Next.js','React','Tailwind CSS','Docker'],
+        features: ['REST API dengan versioning','Template system variable replace','Broadcast multi-recipient','Message queue & rate limiting','API Key + IP whitelist','Webhook delivery status','Monitoring dashboard Recharts','Telegram alerts','Auto-reconnect QR','Hemat biaya ~80%'],
+        repo: 'https://github.com/matdev90/wa-gateway',
+        live: null
+      },
+      {
+        tag: 'devops', icon: '🌐', title: 'SireMik — Remote Monitoring MikroTik',
+        desc: 'Aplikasi web monitoring perangkat MikroTik yang mencatat seluruh aktivitas pengguna: login/logout, traffic usage, koneksi, dan website yang diakses via 5 metode (DNS queries, TLS SNI, HTTP Host header, connection tracking, proxy). Multi-device management, dashboard real-time (throughput, top sites/users, heatmap), export Excel/PDF/CSV/JSON, alert multi-channel (Email/Telegram/Slack/Webhook), dan RBAC.',
+        stack: ['Go (Gin)','GORM','SQLite','React 19','TypeScript','Vite','Tailwind CSS','Recharts','go-routeros','WebSocket'],
+        features: ['Multi-device health check','5 metode logging website','User session tracking (PPP/Hotspot/DHCP)','Traffic logging real-time','Dashboard throughput & heatmap','Export Excel/PDF/CSV/JSON','Alert multi-channel','RBAC (Super Admin/Admin/Viewer)','Skalabel 50+ devices','10K events/second throughput'],
+        repo: null, live: null
+      },
+      {
+        tag: 'web', icon: '📊', title: 'si-api — Analisis Pelaporan Insiden',
+        desc: 'Sistem Informasi Analisis Pelaporan Insiden — aplikasi berbasis web untuk mencatat, melacak, dan menganalisis insiden atau kejadian dalam organisasi. Mendukung workflow pelaporan, investigasi, dan tindak lanjut dengan role-based access.',
+        stack: ['Node.js','Express','JavaScript','SQLite','EJS'],
+        features: ['Pelaporan insiden terstruktur','Workflow investigasi','Role-based access','Tracking & audit trail','Generate laporan analisis'],
+        repo: 'https://github.com/matdev90/si-api',
+        live: null
+      },
+      {
+        tag: 'web', icon: '✅', title: 'Presensi — Aplikasi Kehadiran',
+        desc: 'Aplikasi presensi/kehadiran untuk mencatat dan mengelola data kehadiran karyawan atau anggota organisasi. Mendukung rekap harian/bulanan dan laporan kehadiran.',
+        stack: ['Node.js','Express','JavaScript','HTML','CSS'],
+        features: ['Pencatatan kehadiran','Rekap harian & bulanan','Laporan kehadiran','Manajemen data karyawan','Export laporan'],
+        repo: 'https://github.com/matdev90/presensi',
+        live: null
+      },
+      {
+        tag: 'web', icon: '🩺', title: 'e-Dokter — Aplikasi Dokter',
+        desc: 'Aplikasi berbasis TypeScript untuk manajemen data dokter dan pasien. Mendukung pencatatan rekam medis, jadwal praktik, dan manajemen pasien.',
+        stack: ['TypeScript','Node.js','Express','PostgreSQL','React'],
+        features: ['Rekam medis elektronik','Jadwal praktik dokter','Manajemen pasien','Pencarian & filter data','Role-based access'],
+        repo: 'https://github.com/matdev90/e-Dokter',
+        live: null
+      },
+      {
+        tag: 'devops', icon: '🔗', title: 'MergeSplitX — PDF Merge & Split',
+        desc: 'Aplikasi Java untuk menggabungkan (merge) dan memisahkan (split) file PDF. Tool utility untuk pengolahan dokumen PDF secara offline.',
+        stack: ['Java','PDFBox','Maven'],
+        features: ['Merge multiple PDF','Split PDF per halaman','Command-line interface','Offline processing','Cross-platform'],
+        repo: 'https://github.com/matdev90/MergeSplitX',
+        live: null
+      }
+    ];
+
+    let currentFilter = 'all';
+
+    function renderProjects() {
+      const container = document.getElementById('projectList');
+      const filtered = currentFilter === 'all' ? projects : projects.filter(p => p.tag === currentFilter);
+      container.innerHTML = filtered.map((p, i) => `
+        <div class="project-card reveal" style="margin-bottom:24px;">
+          <div class="project-header">
+            <div class="project-icon">${p.icon}</div>
+            <div class="project-meta">
+              <h3>${p.title}</h3>
+              ${p.repo || p.live ? `<p class="subtitle">${
+                p.repo ? `<a href="${p.repo}" target="_blank">GitHub →</a>` : ''
+              } ${p.repo && p.live ? '·' : ''} ${
+                p.live ? `<a href="${p.live}" target="_blank">Live Demo →</a>` : ''
+              }</p>` : ''}
+            </div>
+          </div>
+          <p class="project-desc">${p.desc}</p>
+          <div class="project-stack">
+            ${p.stack.map(t => `<span>${t}</span>`).join('')}
+          </div>
+          <ul class="features-grid">
+            ${p.features.map(f => `<li>${f}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('');
+      // Observe new reveal elements
+      document.querySelectorAll('#projectList .reveal').forEach(el => revealObserver.observe(el));
+    }
+
+    renderProjects();
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderProjects();
+        // Scroll to project section smoothly
+        document.getElementById('projectList').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
   </script>
 </body>
